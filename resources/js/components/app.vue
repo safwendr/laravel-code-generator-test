@@ -41,9 +41,7 @@
           <li v-for="item in listStrings" :key="item" class="list-group-item">
             <div class="chip">
               {{ item }}
-              <span
-                class="closebtn"
-                onclick="this.parentElement.style.display='none'"
+              <span class="closebtn" v-on:click="removeFromListString($event)"
                 >&times;</span
               >
             </div>
@@ -51,7 +49,8 @@
         </ul>
 
         <a href="#" v-on:click="convertToQRCodes()" class="btn btn-primary mb-2"
-          >Convert all strings to QR Codes</a>
+          >Convert all strings to QR Codes</a
+        >
       </div>
     </div>
   </div>
@@ -68,12 +67,31 @@ export default {
     addToListString() {
       let str = document.getElementById("str").value;
       console.log("str value", str);
+      str = str.trim();
       this.listStrings.push(str);
       console.log("list string value", this.listStrings);
-      document.getElementById("str").value = '';
+      document.getElementById("str").value = "";
+      localStorage["mylist"] = JSON.stringify(this.listStrings);
     },
+    removeFromListString(event) {
+        console.log("element to remove", event.target.parentElement.innerText);
+      let elValue = event.target.parentElement.innerText;
+      elValue = elValue.trim();
+      const valueExist = (element) => element == elValue;
+      console.log("value to remove:", elValue, "type of:", typeof elValue);
+    //   let filteredArr = this.listStrings.filter(function (str) {
+    //     console.log("elvalue here:", elValue);
+    //     return str === elValue;
+    //   });
+    let index = this.listStrings.findIndex(valueExist);
+    console.log('index found',  index);
+    //   console.log("filtered Arr", filteredArr);
+    //   this.listStrings = filteredArr;
+      localStorage["mylist"] = JSON.stringify(this.listStrings);
+    },
+
     convertToQRCodes() {
-        //
+      //
     },
   },
 };

@@ -11,7 +11,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 //
 //
 //
@@ -80,9 +81,31 @@ __webpack_require__.r(__webpack_exports__);
     addToListString: function addToListString() {
       var str = document.getElementById("str").value;
       console.log("str value", str);
+      str = str.trim();
       this.listStrings.push(str);
       console.log("list string value", this.listStrings);
-      document.getElementById("str").value = '';
+      document.getElementById("str").value = "";
+      localStorage["mylist"] = JSON.stringify(this.listStrings);
+    },
+    removeFromListString: function removeFromListString(event) {
+      console.log("element to remove", event.target.parentElement.innerText);
+      var elValue = event.target.parentElement.innerText;
+      elValue = elValue.trim();
+
+      var valueExist = function valueExist(element) {
+        return element == elValue;
+      };
+
+      console.log("value to remove:", elValue, "type of:", _typeof(elValue)); //   let filteredArr = this.listStrings.filter(function (str) {
+      //     console.log("elvalue here:", elValue);
+      //     return str === elValue;
+      //   });
+
+      var index = this.listStrings.findIndex(valueExist);
+      console.log('index found', index); //   console.log("filtered Arr", filteredArr);
+      //   this.listStrings = filteredArr;
+
+      localStorage["mylist"] = JSON.stringify(this.listStrings);
     },
     convertToQRCodes: function convertToQRCodes() {//
     }
@@ -223,8 +246,10 @@ var render = function () {
                   "span",
                   {
                     staticClass: "closebtn",
-                    attrs: {
-                      onclick: "this.parentElement.style.display='none'",
+                    on: {
+                      click: function ($event) {
+                        return _vm.removeFromListString($event)
+                      },
                     },
                   },
                   [_vm._v("×")]
