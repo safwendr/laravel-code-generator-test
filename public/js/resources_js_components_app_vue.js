@@ -67,6 +67,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -79,6 +83,9 @@ __webpack_require__.r(__webpack_exports__);
       console.log("str value", str);
       this.listStrings.push(str);
       console.log("list string value", this.listStrings);
+      document.getElementById("str").value = '';
+    },
+    convertToQRCodes: function convertToQRCodes() {//
     }
   }
 });
@@ -227,6 +234,20 @@ var render = function () {
             ])
           }),
           0
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "btn btn-primary mb-2",
+            attrs: { href: "#" },
+            on: {
+              click: function ($event) {
+                return _vm.convertToQRCodes()
+              },
+            },
+          },
+          [_vm._v("Convert all strings to QR Codes")]
         ),
       ]),
     ]),

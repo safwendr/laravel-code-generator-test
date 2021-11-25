@@ -49,6 +49,10 @@
             </div>
           </li>
         </ul>
+
+        <a href="#" v-on:click="convertToQRCodes()" class="btn btn-primary mb-2"
+          >Convert all strings to QR Codes</a
+        >
       </div>
     </div>
   </div>
@@ -67,6 +71,10 @@ export default {
       console.log("str value", str);
       this.listStrings.push(str);
       console.log("list string value", this.listStrings);
+      document.getElementById("str").value = '';
+    },
+    convertToQRCodes() {
+        //
     },
   },
 };
