@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\QRController;
 use Illuminate\Support\Facades\Route;
-
+use SimpleSoftwareIO\QrCode\BaconQrCodeGenerator;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('qrcode', function()
+// {
+//     \QrCode::size(500)
+//             ->format('png')
+//             ->generate('somestring here.com', public_path('images/qrcode.png'));
+
+//     return view('qr-code');
+// });
+
+// Route::get('qrcode', function () {
+//     \QrCode::size(500)
+//             ->format('png')
+//             ->generate('www.google.com', public_path('images/qrcode.png'));
+// return view('qrCode');
+// });
+
+Route::get('qrcode', [QRController::class, 'generateQrCode']);
 
 Route::get('/{any?}', [
     function () {
