@@ -67,30 +67,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       listStrings: []
     };
+  },
+  methods: {
+    addToListString: function addToListString() {
+      var str = document.getElementById("str").value;
+      console.log("str value", str);
+      this.listStrings.push(str);
+      console.log("list string value", this.listStrings);
+    }
   }
 });
 
@@ -180,111 +169,97 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "card m-4", staticStyle: { width: "18rem" } }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h5", { staticClass: "card-title" }, [_vm._v("Enter you strings:")]),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "btn btn-primary mb-2",
+            attrs: { href: "#" },
+            on: {
+              click: function ($event) {
+                return _vm.addToListString()
+              },
+            },
+          },
+          [_vm._v("Add to list")]
+        ),
+        _vm._v(" "),
+        _c("p", { staticClass: "card-text" }, [
+          _vm._v(
+            "\n        Note: Your strings will be converted to QR Codes as png images.\n      "
+          ),
+        ]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card m-4", staticStyle: { width: "18rem" } }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h5", { staticClass: "card-title" }, [
+          _vm._v("List of strings to convert to QR Codes:"),
+        ]),
+        _vm._v(" "),
+        _c(
+          "ul",
+          { staticClass: "list-group" },
+          _vm._l(_vm.listStrings, function (item) {
+            return _c("li", { key: item, staticClass: "list-group-item" }, [
+              _c("div", { staticClass: "chip" }, [
+                _vm._v("\n            " + _vm._s(item) + "\n            "),
+                _c(
+                  "span",
+                  {
+                    staticClass: "closebtn",
+                    attrs: {
+                      onclick: "this.parentElement.style.display='none'",
+                    },
+                  },
+                  [_vm._v("×")]
+                ),
+              ]),
+            ])
+          }),
+          0
+        ),
+      ]),
+    ]),
+  ])
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("nav", { staticClass: "navbar main-navbar" }, [
-        _c("div", { staticClass: "container-fluid" }, [
-          _c("span", { staticClass: "navbar-brand mb-0 h1 text-light" }, [
-            _vm._v("QR Code Generator"),
-          ]),
+    return _c("nav", { staticClass: "navbar main-navbar" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("span", { staticClass: "navbar-brand mb-0 h1 text-light" }, [
+          _vm._v("QR Code Generator"),
         ]),
       ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card m-4", staticStyle: { width: "18rem" } }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title" }, [
-            _vm._v("Enter you strings:"),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "input-group mb-3" }, [
-            _c("input", {
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                placeholder: "Enter string",
-                "aria-label": "Recipient's username",
-                "aria-describedby": "basic-addon2",
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c(
-            "a",
-            { staticClass: "btn btn-primary mb-2", attrs: { href: "#" } },
-            [_vm._v("Add to list")]
-          ),
-          _vm._v(" "),
-          _c("p", { staticClass: "card-text" }, [
-            _vm._v(
-              "\n        Note: Your strings will be converted to QR Codes as png images.\n      "
-            ),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card m-4", staticStyle: { width: "18rem" } }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title" }, [
-            _vm._v("List of strings to convert to QR Codes:"),
-          ]),
-          _vm._v(" "),
-          _c("ul", { staticClass: "list-group" }, [
-            _c("li", { staticClass: "list-group-item" }, [
-              _c("div", { staticClass: "chip" }, [
-                _vm._v("\n            firststring\n            "),
-                _c(
-                  "span",
-                  {
-                    staticClass: "closebtn",
-                    attrs: {
-                      onclick: "this.parentElement.style.display='none'",
-                    },
-                  },
-                  [_vm._v("×")]
-                ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "list-group-item" }, [
-              _c("div", { staticClass: "chip" }, [
-                _vm._v("\n            string 2\n            "),
-                _c(
-                  "span",
-                  {
-                    staticClass: "closebtn",
-                    attrs: {
-                      onclick: "this.parentElement.style.display='none'",
-                    },
-                  },
-                  [_vm._v("×")]
-                ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "list-group-item" }, [
-              _c("div", { staticClass: "chip" }, [
-                _vm._v("\n            string 3\n            "),
-                _c(
-                  "span",
-                  {
-                    staticClass: "closebtn",
-                    attrs: {
-                      onclick: "this.parentElement.style.display='none'",
-                    },
-                  },
-                  [_vm._v("×")]
-                ),
-              ]),
-            ]),
-          ]),
-        ]),
-      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group mb-3" }, [
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          id: "str",
+          type: "text",
+          placeholder: "Enter string",
+          "aria-label": "Recipient's username",
+          "aria-describedby": "basic-addon2",
+        },
+      }),
     ])
   },
 ]
